@@ -1,24 +1,20 @@
 #include <stdio.h>
 /**
- * main - prints first 50 fibonacci
+ *main - print first 50 fibonacci
  *
- * Return: 0 always
+ *Return: 0 always.
  */
 int main(void)
 {
-	int fib1 = 1, fib2 = 2, next_fib, count;
-
-	printf("%d, %d", fib1, fib2);
-
-	for (count = 3; count <= 50; count++)
-	{
-		next_fib = fib1 + fib2;
-		printf(", %d", next_fib);
-		fib1 = fib2;
-		fib2 = next_fib;
-	}
-
-	printf("\n");
-
-	return (0);
+long int i, x = 1, y = 2, sum = 0;
+for (i = 0; i < 49; i++)
+{
+printf("%ld, ", x);
+sum = x + y;
+x = y;
+y = sum;
+if (i == 48)
+printf("%ld\n", x);
+}
+return (0);
 }

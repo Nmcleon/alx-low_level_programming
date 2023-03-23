@@ -4,7 +4,7 @@
  * largest_prime_factor - finds the largest prime factor of a given number
  * @n: the number to factorize
  *
- * Return: the largest prime factor of n
+ * Return: always 0
  */
 int main(void)
 {

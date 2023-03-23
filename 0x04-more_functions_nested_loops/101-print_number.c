@@ -1,35 +1,22 @@
 #include "main.h"
-#include <stdio.h>
-#include <unistd.h>
 
 /**
- * print_number - prints an integer using _putchar
- * @n: integer to print
+ * print_number - prints an integer
+ * @n: tracked var
  */
+
 void print_number(int n)
 {
-	int num, digit, divisor;
-
-	divisor = 1;
+	unsigned int x = n;
 
 	if (n < 0)
 	{
-		putchar('-');
-		n = -n;
+		_putchar(45);
+		x = -x;
 	}
-	
-	num = n;
-	
-	while (num / divisor > 9)
+	if ((x / 10) > 0)
 	{
-		divisor *= 10;
+		print_number(x / 10);
 	}
-
-	while (divisor != 0)
-	{
-		digit = num / divisor;
-		putchar(digit + '0');
-		num %= divisor;
-		divisor /= 10;
-	}
+	_putchar((x % 10) + 48);
 }

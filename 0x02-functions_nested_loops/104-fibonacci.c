@@ -15,15 +15,14 @@ int main(void)
 	while (count < 98)
 	{
 		next = first + second;
+		printf(", %d", next);
 		first = second;
 		second = next;
-
-		printf(", %d", next);
-
 		count++;
 	}
 
-	printf("\n");
+	next = first + second;
+	printf("%d\n", next);
 
 	return (0);
 }

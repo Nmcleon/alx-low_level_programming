@@ -1,8 +1,11 @@
 #include "main.h"
 
 /**
-* _strlen_recursion - Returns the length of a string
+* check - Checker for the palindrome
 * @s: The string to get the length of
+* @start: int moves from right to left
+* @end: int move from left to right
+* @pair: int
 *
 * Return: The length of the string
 */
@@ -25,9 +28,9 @@ int check(char *s, int start, int end, int pair)
 /**
 * last_index - Returns the last index of a string (counts the null char)
 *
-* @s:
+* @s: point the string
 *
-* Return:
+* Return: int
 */
 
 int last_index(char *s)
@@ -43,9 +46,9 @@ int last_index(char *s)
 /**
 * is_palindrome - Check if a string is a palindrome
 *
-* @s:
+* @s: string to check
 *
-* Return:
+* Return: 0 or 1
 */
 
 int is_palindrome(char *s)

@@ -38,7 +38,7 @@ while (coins[position] != '\0')
 {
 if (total >= coins[position])
 {
-aux = (total / coins[position]);
+x = (total / coins[position]);
 change += x;
 total -= coins[position] * x;
 }

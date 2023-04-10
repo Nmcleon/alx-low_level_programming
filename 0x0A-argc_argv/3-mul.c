@@ -4,7 +4,7 @@
 
 /**
  * main - Multiplication of two numbers
- * @ardc: count or arguments
+ * @argc: count or arguments
  * @argv: Arguments
  *
  * Return: 0 (Success)

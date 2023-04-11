@@ -9,3 +9,4 @@
 - 0x07. C - Even more pointers, arrays and strings
 - 0x08-recursion
 - 0x09. C - Static libraries
+- 0x0B. C - malloc, free

@@ -10,77 +10,68 @@
 */
 int wordcnt(char *s)
 {
-	int i, n = 0;
+	int flag, c, w;
 
-	for (i = 0; s[i]; i++)
+	flag = 0;
+	w = 0;
+	for (c = 0; s[c] != '\0'; c++)
 	{
-		if (s[i] == ' ')
+		if (s[c] == ' ')
 		{
-			if (s[i + 1] != ' ' && s[i + 1] != '\0')
-			n++;
+			flag = 0;
 		}
-		else if (i == 0)
-		n++;
+		else if (flag == 0)
+		{
+			flag = 1;
+			w++;
+		}
 	}
-	n++;
-	return (n);
+	return (w);
 }
-
 /**
 * strtow - spliting string into two words
 * @str: string
 *
-*
-* Return: poiter to array of string
+* Return: pointer to an array of strings
 */
-
 char **strtow(char *str)
 {
-	int i, j, k, l, n = 0, ch = 0;
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
 
-	char **x;
-
-	if (str == NULL || *str == '\0')
-	return (NULL);
-
-	n = wordcnt(str);
-
-	if (n == 1)
-	return (NULL);
-
-	x = (char **)malloc(n * sizeof(char *));
-	if (x == NULL)
-	return (NULL);
-
-	x[n - 1] = NULL;
-	i = 0;
-
-	while (str[i])
+	while (*(str + len))
+	len++;
+	words = wordcnt(str);
+	if (words == 0)
 	{
-		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
-		{
-			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
-			j++;
-			x[ch] = (char *)malloc(j * sizeof(char));
-			j--;
-
-			if (x[ch] == NULL)
-			{
-				for (k = 0; k < ch; k++)
-				free(x[k]);
-				free(x[n - 1]);
-				free(x);
-				return (NULL);
-			}
-			for (l = 0; l < j; l++)
-			x[ch][l] = str[i + l];
-			x[ch][l] = '\0';
-			ch++;
-			i += j;
-		}
-		else
-		i++;
+		return (NULL);
 	}
-	return (x);
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; i <= len; i++)
+	{
+		if (str[i] == ' ' || str[i] == '\0')
+		{
+			if (c)
+			{
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+				{
+					return (NULL);
+				}
+				while (start < end)
+				*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
+			}
+		}
+	}
+	matrix[k] = NULL;
+	return (matrix);
 }
-

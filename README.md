@@ -10,3 +10,4 @@
 - 0x08-recursion
 - 0x09. C - Static libraries
 - 0x0B. C - malloc, free
+- 0x0C. C - More malloc, free

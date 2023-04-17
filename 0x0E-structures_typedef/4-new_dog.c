@@ -1,88 +1,83 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "dog.h"
 
 /**
-* new_dog - creates a new dog struct
-* @name: name of the dog
-* @age: age of the dog
-* @owner: name of the dog's owner
-*
-* Return: pointer to the new dog, or NULL (fail)
-*/
+ * cpy  -   Make a copy of passed in argument
+ * @src:      Data to make copy
+ * Return:    Pointer (Success)
+ */
+
+char *cpy(char *src)
+{
+	char *ptr;
+	int dg, len;
+
+	if (src == NULL)
+	{
+		return (NULL);
+	}
+
+	for (len = 0; src[len] != '\0'; len++)
+		;
+
+	ptr = malloc(sizeof(char) * (len + 1));
+
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
+
+	for (dg = 0; src[dg] != '\0'; dg++)
+	{
+		ptr[dg] = src[dg];
+	}
+
+	ptr[dg] = '\0';
+	return (ptr);
+}
+
+/**
+ * new_dog     - Create new dog variable
+ * @name:        Name of the dog
+ * @age:         Age of the dog
+ * @owner:       Owner of the dog
+ * Return:       Pointer to new dog variable
+ */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+	dog_t *flakes;
+	char *new_name, *new_owner;
 
 	if (name == NULL || owner == NULL)
-		return (NULL);
-
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (NULL);
-
-	new_dog->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if (new_dog->name == NULL)
 	{
-		free(new_dog);
 		return (NULL);
 	}
-	_strcpy(new_dog->name, name);
 
-	new_dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-	if (new_dog->owner == NULL)
+	flakes = malloc(sizeof(dog_t));
+	if (flakes == NULL)
 	{
-		free(new_dog->name);
-		free(new_dog);
 		return (NULL);
 	}
-	_strcpy(new_dog->owner, owner);
 
-	new_dog->age = age;
-
-	return (new_dog);
-}
-
-/**
- * _strlen - calculates the length of a string
- * @s: string to calculate the length of
- *
- * Return: length of s
- */
-
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*s != '\0')
+	new_name = cpy(name);
+	if (new_name == NULL)
 	{
-		len++;
-		s++;
+		free(flakes);
+		return (NULL);
 	}
+	(*flakes).name = new_name;
 
-	return (len);
-}
+	(*flakes).age = age;
 
-/**
- * _strcpy - copies a string to a new location
- * @dest: destination buffer
- * @src: source string
- *
- * Return: pointer or dest buffer
- */
-
-char *_strcpy(char *dest, char *src)
-{
-	char *start = dest;
-
-	while (*src != '\0')
+	new_owner = cpy(owner);
+	if (new_owner == NULL)
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		free((*flakes).name);
+		free(flakes);
+		return (NULL);
 	}
+	(*flakes).owner = new_owner;
 
-	*dest = '\0';
-
-	return (start);
+	return (flakes);
 }

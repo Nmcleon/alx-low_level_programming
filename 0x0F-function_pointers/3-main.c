@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		printf("Usage: %s <num1> <operator> <num2 > \n", argv[0]);
+		printf("Error\n");
 		return (98);
 	}
 	num1 = atoi(argv[1]);
@@ -25,12 +25,12 @@ int main(int argc, char *argv[])
 	op_func = get_op_func(argv[2]);
 	if (!op_func)
 	{
-		printf("Error: Unknown operator '%s'\n", argv[2]);
+		printf("Error\n");
 		return (99);
 	}
 	if ((op_func == op_div || op_func == op_mod) && num2 == 0)
 	{
-		printf("Error: Division by zero\n");
+		printf("Error\n");
 		return (100);
 	}
 	result = op_func(num1, num2);

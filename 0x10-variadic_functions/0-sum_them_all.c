@@ -9,11 +9,14 @@
 * Return: Sum of all arguments
 */
 
-int sum_then_all(const unsigned int n, ...)
+int sum_then_all(const unsigned int i, ...)
 {
 	va_list args;
-	unsigned int n;
+	unsigned int i;
 	int sum = 0;
+	
+	if (n == 0)
+		return (0);
 
 	va_start(args, n);
 	for (int i = 0; i < n; i++)

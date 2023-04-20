@@ -21,9 +21,9 @@ op_t ops[] =
 {NULL, NULL}
 };
 int i = 0;
-while (ops[i].op != NULL)
+while (ops[i].op)
 {
-if (*(ops[i].op) == *s)
+if (strcmp(ops[i].op, s) == 0)
 	return (ops[i].f);
 i++;
 }

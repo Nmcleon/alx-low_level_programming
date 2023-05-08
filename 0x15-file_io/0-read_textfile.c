@@ -8,25 +8,37 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-    ssize_t file, frd, fwte;
-    char *tSize;
 
-    tSize = malloc(sizeof(char) * letters);
-    if (tSize == NULL)
-        return (0);
-    if (filename == NULL)
-        return (0);
+	int fd;
+	ssize_t rd, wrte;
+	char *buff;
 
-    file = open(filename, O_RDONLY);
-    if (file == -1)
-        return (0);
-    frd = read(file, tSize, letters);
-    if (frd == -1)
-        return (0);
-    fwte = write(STDOUT_FILENO, tSize, frd);
-    if (fwte == -1)
-        return (0);
-    close(file);
-    free(totalSize);
-    return (fwte);
+	if (filename == NULL)
+		return (0);
+	bufd = malloc(sizeof(char) * letters);
+	if (buff == NULL)
+		return (0);
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+	{
+		free(buff);
+		return (0);
+	}
+	rd = read(fd, buff, letters);
+	if (rd == -1)
+	{
+		free(buff);
+		close(fd);
+		return (0);
+	}
+	close(fd);
+	wrte = write(STDOUT_FILENO, buf, rd);
+	if (wrte == -1)
+	{
+		free(buff);
+		return (0);
+	}
+	if (wrte != rd)
+		return (0);
+	return (rd);
 }

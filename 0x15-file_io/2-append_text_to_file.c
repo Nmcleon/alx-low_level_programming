@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -6,6 +7,7 @@
 * @text_content: char, the NULL terminated string added at end of file
 * Return: 1 (success), -1 (fail)
 */
+
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int file;

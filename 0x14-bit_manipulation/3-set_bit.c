@@ -1,18 +1,17 @@
 #include "main.h"
 
 /**
-* set_bit - sets bit at given index to 1
-* @n: pointer to number to change
-* @index: index of bit to set to 1
-*
-* Return: 1 (SUCCESS), -1 (FAIL)
-*/
+  * set_bit - the function name
+  * @n: parameter of type unsigned long int *.
+  * @index: parameter of type unsigned int .
+  * Return: int .
+ */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	if (index > 63)
+if (index > 63)
 	{
-		return (-1);
+return (-1);
 	}
-	*n = ((1UL << index) | *n);
-	return (1);
+*n = ((1UL << index) | *n);
+return (1);
 }

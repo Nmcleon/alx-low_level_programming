@@ -20,3 +20,4 @@
 - 0x14. C - Bit manipulation
 - 0x15. C - File I/O
 - 0x18-dynamic_libraries
+- 0x1A-hash_tables

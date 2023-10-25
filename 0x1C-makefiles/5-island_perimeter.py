@@ -1,22 +1,20 @@
 #!/usr/bin/python3
-
+"""Island perimeter measuring function."""
 
 def island_perimeter(grid):
+    """Return perimiter of an island."""
 
-    wd = len(grid[0])
-    ht = len(grid)
-    per = 0
+     = len(grid[0])
+    h = len(grid)
+    edges = 0
+    size = 0
 
-    for c in range(ht):
-        for h in range(wd):
-            if grid[c][h] == 0:
-                if (h > 0 and grid[c][h - 1] == 1):
-                    per += 1
-                if (c > 0 and grid[c - 1][h] == 1):
-                    per += 1
-                if (h < wd - 1 and grid[c][h + 1] == 1):
-                    per += 1
-                if (c < ht - 1 and grid[c + 1][h] == 1):
-                    per += 1
-    return per
-
+    for i in range(h):
+        for j in range(w):
+            if grid[i][j] == 1:
+                size += 1
+                if (j > 0 and grid[i][j - 1] == 1):
+                    edges += 1
+                if (i > 0 and grid[i - 1][j] == 1):
+                    edges += 1
+    return size * 4 - edges * 2

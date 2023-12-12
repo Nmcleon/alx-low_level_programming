@@ -30,14 +30,14 @@ printf("Value found between indexes[%lu] and [%lu]\n", bound / 2,
 }
 
 /**
-  * binary_search - the function name
+  * binary_search_left_right - the function name
   * @array: parameter of type int *.
   * @left: parameter of type size_t .
   * @right: parameter of type size_t .
   * @value: parameter of type int .
-  * Return: int .
+  * Return: int
  */
-int binary_search(int *array, size_t left, size_t right, int value)
+int binary_search_left_right(int *array, size_t left, size_t right, int value)
 {
 	size_t mid, i;
 

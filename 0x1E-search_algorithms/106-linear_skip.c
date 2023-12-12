@@ -5,7 +5,7 @@
  *
  * @list: input list
  * @value: value to search in
- * Return: index of the number (SUCCESS)
+ * Return: index of the number (SUCCESS), -1 (FAILURE)
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
